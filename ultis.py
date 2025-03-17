@@ -11,7 +11,7 @@ from langchain_experimental.sql import SQLDatabaseChain
 # from langchain.utilities import SQLDatabase
 from langchain_community.utilities import SQLDatabase
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "IhSWDkA"
 os.environ["LANGSMITH_TRACING"] = "true"
 os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 os.environ["LANGSMITH_API_KEY"] = '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'
