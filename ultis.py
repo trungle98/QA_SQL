@@ -11,16 +11,16 @@ from langchain_experimental.sql import SQLDatabaseChain
 # from langchain.utilities import SQLDatabase
 from langchain_community.utilities import SQLDatabase
 
-os.environ["OPENAI_API_KEY"] = "IhSWDkA"
+os.environ["OPENAI_API_KEY"] = ""
 os.environ["LANGSMITH_TRACING"] = "true"
 os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
-os.environ["LANGSMITH_API_KEY"] = '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'
+os.environ["LANGSMITH_API_KEY"] = ''
 os.environ["LANGSMITH_PROJECT"] = "langsmith_project"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 
-os.environ["OPENAI_API_KEY"] = "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"
-os.environ["ANTHROPIC_API_KEY"] = "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"
-SUPABASE_URI = "postgresql://postgres.vvbijcggutphyivetfbw:dungthao9299@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres"
+os.environ["OPENAI_API_KEY"] = ""
+os.environ["ANTHROPIC_API_KEY"] = ""
+SUPABASE_URI = ""
 # System Context ban đầu
 FULL_DES_JSON = {
   "GSTD_Model Inventory": {
