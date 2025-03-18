@@ -42,17 +42,14 @@ async def chat_with_gpt(message: cl.Message):
         try:
             print("Running SQL Query:", sql_code)
             result = execute_query_tool.run(sql_code)
-            conversation_history.append({"role": "user", "content": f" câu hỏi trên cho ra lệnh sql query là {sql_code} kết quả là: {result}, dựa vào dữ liệu trên, hãy biểu diễn dữ liệu trên bảng và hiển thị SQL query cũng như giải thích câu truy vấn dựa trên câu hỏi trên"})
+            conversation_history.append({"role": "user", "content": f" câu hỏi trên cho ra lệnh sql query là {sql_code} kết quả là: {result}, dựa vào dữ liệu trên, hãy biểu diễn dữ liệu trên bảng và hiển thị SQL query cũng như giải thích câu truy vấn dựa trên câu hỏi trên, nếu kết quả của câu truy vấn là không có dữ liệu, thì không cần giải thích"})
             final_res = openai.chat.completions.create(
             model="gpt-4o",
             messages=conversation_history
             )
             final_ans = final_res.choices[0].message.content
-            # Sửa lỗi TypeError: chỉ truyền 1 tham số
-            response_time = time.time() - start_time
-            print("response_time: ", response_time)
+            final_ans = final_ans+"\n \nThời gian phản hồi: "+str(time.time()-start_time)
             await cl.Message(content=final_ans).send()
-            # await cl.Message(content=f"**Thời gian phản hồi**:{response_time} giây \n**kết quả truy vấn:**\n```markdown \n{result}\n ```\n**Câu lệnh SQL:**\n```sql\n{sql_code}\n``` ").send()
         except Exception as e:
             await cl.Message({e}).send()
     else:
