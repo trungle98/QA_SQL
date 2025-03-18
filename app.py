@@ -42,13 +42,14 @@ async def chat_with_gpt(message: cl.Message):
         try:
             print("Running SQL Query:", sql_code)
             result = execute_query_tool.run(sql_code)
-            conversation_history.append({"role": "user", "content": f" câu hỏi trên cho ra lệnh sql query là {sql_code} kết quả là: {result}, dựa vào dữ liệu trên, hãy biểu diễn dữ liệu trên bảng và hiển thị SQL query cũng như giải thích câu truy vấn dựa trên câu hỏi trên"})
+            response_time = time.time() - start_time
+            conversation_history.append({"role": "user", "content": f" câu hỏi trên cho ra lệnh sql query là {sql_code} kết quả là: {result}, dựa vào dữ liệu trên, hãy biểu diễn dữ liệu trên bảng và hiển thị SQL query"})
             final_res = openai.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini",
             messages=conversation_history
             )
             final_ans = final_res.choices[0].message.content
-            final_ans = final_ans+"\n \nThời gian phản hồi: "+str(time.time()-start_time)
+            final_ans = final_ans+"\n \nThời gian phản hồi: "+str(response_time)
             await cl.Message(content=final_ans).send()
         except Exception as e:
             await cl.Message({e}).send()
