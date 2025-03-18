@@ -11,3 +11,4 @@ langgraph-checkpoint==2.0.18
 langgraph-sdk==0.1.55
 chainlit==2.4.1
 pandas==2.2.3
+psycopg2
