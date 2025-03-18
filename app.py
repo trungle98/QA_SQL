@@ -42,7 +42,7 @@ async def chat_with_gpt(message: cl.Message):
         try:
             print("Running SQL Query:", sql_code)
             result = execute_query_tool.run(sql_code)
-            conversation_history.append({"role": "user", "content": f" câu hỏi trên cho ra lệnh sql query là {sql_code} kết quả là: {result}, dựa vào dữ liệu trên, hãy biểu diễn dữ liệu trên bảng và hiển thị SQL query cũng như giải thích câu truy vấn dựa trên câu hỏi trên, nếu kết quả của câu truy vấn là không có dữ liệu, thì không cần giải thích"})
+            conversation_history.append({"role": "user", "content": f" câu hỏi trên cho ra lệnh sql query là {sql_code} kết quả là: {result}, dựa vào dữ liệu trên, hãy biểu diễn dữ liệu trên bảng và hiển thị SQL query cũng như giải thích câu truy vấn dựa trên câu hỏi trên"})
             final_res = openai.chat.completions.create(
             model="gpt-4o",
             messages=conversation_history
