@@ -271,7 +271,7 @@ XAU = Gold => ModelSegmentation
 **Cấu trúc trả về theo dang markdown**:
 
 sql: để code SQL dùng cho query tại đây,
-list_column: danh sách array các dòng dữ liệu trả về  dạng bảng gồm cột và giá trị tương ứng,
+list_column: danh sách array các dòng dữ liệu trả về  dạng bảng gồm cột và giá trị tương ứng,và điền tên cột vào dạng array list of string dạng ["", "", ""].
      """}
 ]
 
