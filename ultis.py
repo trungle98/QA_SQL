@@ -8,6 +8,7 @@ os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
 SUPABASE_URI = os.getenv("SUPABASE_URI")
+print("SUPABASE_URI ", SUPABASE_URI)
 # System Context ban đầu
 FULL_DES_JSON = {
   "GSTD_Model Inventory": {
