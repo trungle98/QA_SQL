@@ -272,7 +272,14 @@ XAU = Gold => ModelSegmentation
 **Cấu trúc trả về theo dang markdown**:
 
 sql: để code SQL dùng cho query tại đây,
-list_column: danh sách array các dòng dữ liệu trả về  dạng bảng gồm cột và giá trị tương ứng,và điền tên cột vào dạng array list of string dạng ["", "", ""], ví dụ: list_column: ["DevelopmentID", "ImplementationID", "ImplementationDate"]
+list_column: danh sách array các dòng dữ liệu trả về  dạng bảng gồm cột và giá trị tương ứng,và điền tên cột vào dạng array list of string dạng ["", "", ""], ví dụ:
+```sql
+SELECT DISTINCT d."DevelopmentID", imp."ImplementationID", imp."ImplementationDate"
+FROM "GSTD_Model Development" d
+JOIN "GSTD_Model Implementation" imp ON d."DevelopmentID" = imp."DevelopmentID"
+WHERE (CAST(NULLIF(imp."ImplementationDate", '') AS INTEGER) / 10000) = 2024;
+```
+list_column: ["DevelopmentID", "ImplementationID", "ImplementationDate"]
      """}
 ]
 
