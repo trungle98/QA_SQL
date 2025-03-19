@@ -10,6 +10,8 @@ from langchain_community.tools.sql_database.tool import QuerySQLDatabaseTool
 
 db = SQLDatabase.from_uri(SUPABASE_URI)
 execute_query_tool = QuerySQLDatabaseTool(db=db)
+
+decode_table = pd.read_excel("BANGMAHOA.xlsx", engine='openpyxl' )
 @cl.on_message
 async def chat_with_gpt(message: cl.Message):
     start_time = time.time()
@@ -21,7 +23,8 @@ async def chat_with_gpt(message: cl.Message):
     conversation_history = cl.user_session.get("conversation_history")
 
     # Thêm tin nhắn người dùng vào hội thoại
-    conversation_history.append({"role": "user", "content": message.content})
+    user_message = decode_keyword_func(message.content, decode_table)
+    conversation_history.append({"role": "user", "content": user_message})
 
     # Gọi API OpenAI để lấy phản hồi
     response = openai.chat.completions.create(
