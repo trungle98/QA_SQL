@@ -41,12 +41,13 @@ async def chat_with_gpt(message: cl.Message):
     # Lưu lại hội thoại vào session để duy trì context
     cl.user_session.set("conversation_history", conversation_history)
     sql_code = extract_sql_query(assistant_reply)
+    list_column = get_column_name_from_response(assistant_reply)
     if sql_code:
         try:
             print("Running SQL Query:", sql_code)
             result = execute_query_tool.run(sql_code)
             data = eval(str(result))
-            df = pd.DataFrame(data)
+            df = pd.DataFrame(data, columns=list_column)
             print("len df: ", len(df))
             markdown_table = df.to_markdown(index=False)
             # Sửa lỗi TypeError: chỉ truyền 1 tham số
@@ -91,3 +92,11 @@ def decode_keyword_func(text: str, code_mapping: pd.DataFrame) -> str:
     # Tìm tất cả các chuỗi trong dấu nháy đơn và thay thế từng cái
     processed_text = re.sub(r"'([^']+)'", replace_match, text)
     return processed_text
+def get_column_name_from_response(openai_respose):
+    match = re.search(r'list_column:\s*(\[[^\]]*\])', openai_respose)
+    if match:
+    # Tách phần danh sách và chuyển thành list
+        list_column = eval(match.group(1))  # hoặc sử dụng ast.literal_eval(match.group(1)) để an toàn hơn
+        return list_column
+    else:
+        return [0]
