@@ -2,6 +2,5 @@
 
 ## how to install
 
-1. pip3 install -r req
-uirements.txt
+1. pip3 install -r requirements.txt
 2. chainlit run app.py
