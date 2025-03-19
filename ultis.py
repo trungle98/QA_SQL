@@ -259,6 +259,32 @@ XDMH = Xây dựng mô hình => RatingStage
 GSMH = Giám sát mô hình => RatingStage
 KDMH = Kiểm định mô hình => RatingStage
 ibiz = Cho vay Cá nhân sản xuất kinh doanh => ModelSegmentation
+CSE = Cho vay tiêu dùng có TSBĐ => ModelSegmentation
+CONS = Cho vay tiêu dùng có TSBĐ => ModelSegmentation
+CUS = Cho vay tiêu dùng không có TSBĐ => ModelSegmentation
+UNSEC = Cho vay tiêu dùng không có TSBĐ => ModelSegmentation
+CARD = Thẻ tín dụng => ModelSegmentation
+CC = Thẻ tín dụng => ModelSegmentation
+CAR = Cho vay mua ô tô/ xe máy để tiêu dùng => ModelSegmentation
+AUTO = Cho vay mua ô tô/ xe máy để tiêu dùng => ModelSegmentation
+FX = FX => ModelSegmentation
+ngoại tệ = FX => ModelSegmentation
+ngoại hối = FX => ModelSegmentation
+IRS = IRS => ModelSegmentation
+interest rate swap = IRS => ModelSegmentation
+hợp đồng hoán đổi lãi suất = IRS => ModelSegmentation
+cross currency swap = CCS => ModelSegmentation
+hợp đồng hoán đổi ngoại tệ = CCS => ModelSegmentation
+SKD = SKD => ModelSegmentation
+sổ kinh doanh = SKD => ModelSegmentation
+trading book = SKD => ModelSegmentation
+TB = SKD => ModelSegmentation
+Gold = Gold => ModelSegmentation
+XAU = Gold => ModelSegmentation
+**Cấu trúc trả về theo dang markdown**:
+
+sql: để code SQL dùng cho query tại đây,
+list_column: danh sách array các dòng dữ liệu trả về  dạng bảng gồm cột và giá trị tương ứng,
      """}
 ]
 
