@@ -1,26 +1,13 @@
 import os
-import getpass
-import streamlit as st
 
-from sqlalchemy import create_engine
-from typing_extensions import Annotated
-
-from langchain import hub
-from langchain.chat_models import init_chat_model
-from langchain_experimental.sql import SQLDatabaseChain
-# from langchain.utilities import SQLDatabase
-from langchain_community.utilities import SQLDatabase
-
-os.environ["OPENAI_API_KEY"] = ""
 os.environ["LANGSMITH_TRACING"] = "true"
 os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
-os.environ["LANGSMITH_API_KEY"] = ''
 os.environ["LANGSMITH_PROJECT"] = "langsmith_project"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 
-os.environ["OPENAI_API_KEY"] = ""
-os.environ["ANTHROPIC_API_KEY"] = ""
-SUPABASE_URI = ""
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+os.environ["LANGSMITH_API_KEY"] = st.secrets["LANGSMITH_API_KEY"]
+SUPABASE_URI = st.secrets["SUPABASE_URI"]
 # System Context ban đầu
 FULL_DES_JSON = {
   "GSTD_Model Inventory": {
