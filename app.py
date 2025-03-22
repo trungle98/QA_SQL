@@ -10,8 +10,48 @@ from langchain_community.tools.sql_database.tool import QuerySQLDatabaseTool
 
 db = SQLDatabase.from_uri(SUPABASE_URI)
 execute_query_tool = QuerySQLDatabaseTool(db=db)
-
 decode_table = pd.read_excel("BANGMAHOA.xlsx", engine='openpyxl' )
+
+@cl.on_chat_start
+async def start():
+
+    # Gửi từng button trong một tin nhắn riêng
+    for i, (name, label, value) in enumerate([
+        ("question_1", "Click me", "Số lượng mô hình của từng nhóm RRTD bán buôn, RRTD bán lẻ, thị trường, ..."),
+        ("question_2", "Click me", "Kể tên (ModelName) các mô hình có kết quả KĐMH lần đầu loại 1"),
+        ("question_3", "Click me", "Kể tên (ModelName) các mô hình (mô hình cập nhật) có KĐMH lần đầu Loại 3"),
+        ("question_4", "Click me", "Kể tên (ModelName) các mô hình (mô hình cập nhật) có XHRRMH thời điểm gần nhất Cao"),
+        ("question_5", "Click me", "Thống kê số lượng các khuyến nghị chưa được thực hiện đối với từng nhóm RRTD bán buôn, bán lẻ, ...")
+    ]):
+        await cl.Message(content=f"{value}", actions=[
+            cl.Action(name=name, payload={"value": value}, label=label)
+        ]).send()
+
+@cl.action_callback("question_1")
+async def handle_action(action):
+    value = action.payload.get("value")  # Lấy giá trị từ payload
+    await chat_with_gpt(cl.Message(content=value))  # Gửi giá trị này đến GPT để xử lý
+
+@cl.action_callback("question_2")
+async def handle_action(action):
+    value = action.payload.get("value")  # Lấy giá trị từ payload
+    await chat_with_gpt(cl.Message(content=value))  # Gửi giá trị này đến GPT để xử lý
+
+@cl.action_callback("question_3")
+async def handle_action(action):
+    value = action.payload.get("value")  # Lấy giá trị từ payload
+    await chat_with_gpt(cl.Message(content=value))  # Gửi giá trị này đến GPT để xử lý
+
+@cl.action_callback("question_4")
+async def handle_action(action):
+    value = action.payload.get("value")  # Lấy giá trị từ payload
+    await chat_with_gpt(cl.Message(content=value))  # Gửi giá trị này đến GPT để xử lý
+
+@cl.action_callback("question_5")
+async def handle_action(action):
+    value = action.payload.get("value")  # Lấy giá trị từ payload
+    await chat_with_gpt(cl.Message(content=value))  # Gửi giá trị này đến GPT để xử lý
+
 @cl.on_message
 async def chat_with_gpt(message: cl.Message):
     start_time = time.time()
