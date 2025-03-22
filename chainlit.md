@@ -1,14 +1,13 @@
-# Welcome to Chainlit! 🚀🤖
+# Welcome to Q-MPMS Chatbot🤖
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+Chào bạn. Chatbot hỗ trợ cung cấp thông tin về tên, phân khúc, XDMH, triển khai, giám sát, ứng dụng, kiểm định, tuân thủ, kiểm toán.
 
-## Useful Links 🔗
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
+## Tips🔗
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+- 1. Cho Chatbot biết thông tin bạn cần (Tên, ngày, phân khúc, v.v) 📚
+- 2. Chia ra để hỏi, hoặc tăng dần độ phức tạp của câu hỏi.
+- 3. Để hỏi chi tiết về 01 tên, phân khúc cụ thể; đặt keyword vào trong ''. (Nếu không có, vui lòng liên hệ để làm giàu từ điển).
+- 4. Đổi keywords nếu cần. 
 
-## Welcome screen
-
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+Chúc bạn gian vui vẻ! 💻😊
